@@ -21,6 +21,7 @@ Gamas
             <td>Id</td>
             <td>Nombre</td>
             <td>Descripción</td>
+            <td>Registrado</td>
             <td>Acciones</td>
         </tr>
   </thead>
