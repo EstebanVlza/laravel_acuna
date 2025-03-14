@@ -14,6 +14,19 @@ Marcas
 
 @section('content')
 
-{{ $marca }}
+
+
+<div class="row justify-content-center">
+    <div class="col-6" >
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ $marca->nombre }}</h5>
+                <p class="card-text"><strong>Registrado: </strong> {{ $marca->created_at }}</p> 
+                <a href="#" class="card-link">Modificar</a> 
+                <a href="#" class="card-link">Eliminar</a>
+            </div>
+        </div> 
+    </div>
+</div>
 
 @endsection

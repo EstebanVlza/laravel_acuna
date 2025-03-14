@@ -18,6 +18,19 @@ class MarcaController extends Controller
         return view('marca.item', compact('marca'));
 
     }
-
+    public function agregar(){
+    
+        return view('marca.agregar');
+    }
+    
+    public function store(Request $request){
+        $data= $request->validate([
+            'nombre'=> 'required'
+        ]);
+        Marca::create([
+            'nombre' => $data['nombre'],
+        ]);
+        return redirect()->route('marca');
+    }
 
 }

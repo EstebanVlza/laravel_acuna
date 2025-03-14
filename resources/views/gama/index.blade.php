@@ -1,16 +1,15 @@
 @extends('layouts.main')
-
 @section('top-title', 'Gamas')
 
 @section('title')
 Gamas
 @endsection
-
 @section('breadcrumbs')
-<li class="breadcrumb-item">
-    <a href="/">Inicio</a>
-</li>
+<li class="breadcrumb-item"><a href="/">Inicio</a></li>
 <li class="breadcrumb-item active">Gamas</li>
+@endsection
+@section('action')
+<a class="btn btn-success" href="{{ route('gama.agregar') }}"><i class="fa fa-plus"></i>Agregar</a>
 @endsection
 
 @section('content')

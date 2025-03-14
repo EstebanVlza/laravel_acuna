@@ -16,9 +16,17 @@ Route::get('/', action: [InicioController::class, 'index'])->name('home');
 Route::get('/movil', action: [MovilController::class, 'index'])->name('movil');
 Route::get('/marca', [MarcaController::class, 'index'])->name('marca');
 Route::get('/gama', [GamaController::class, 'index'])->name('gama');
-Route::get('/movil/{id}', [MovilController::class, 'item'])->name('movil.item');
-Route::get('/marca/{id}', [MarcaController::class, 'item'])->name('marca.item');
+Route::get('/movil/agregar', action: [MovilController::class, 'agregar'])->name('movil.agregar');
+Route::get('/movil/{id}', action: [MovilController::class, 'item'])->name('movil.item');
+Route::get('/marca/agregar', action: [MarcaController::class, 'agregar'])->name('marca.agregar');
+Route::get('/marca/{id}', action: [MarcaController::class, 'item'])->name('marca.item');
+Route::get('/gama/agregar', [GamaController::class, 'agregar'])->name('gama.agregar');
 Route::get('/gama/{id}', [GamaController::class, 'item'])->name('gama.item');
+
+Route::post('/movil/agregar', [MovilController::class, 'store'])->name('movil.store');
+Route::post('/marca/agregar', [MarcaController::class, 'store'])->name('marca.store');
+Route::post('/gama/agregar', [GamaController::class, 'store'])->name('gama.store');
+
 
 // compleja
 // to be continued...

@@ -14,10 +14,26 @@ public function index(){
     return view("gama.index", compact("gama"));
 
     }
+    public function agregar(){
+    
+        return view('gama.agregar');
+    }
     
     public function item($id){
         $gama = Gama::where('id', '=', $id)->first();
 
         return view('gama.item', compact('gama'));
+    }
+    public function store(Request $request){
+        $data= $request->validate([
+            'nombre'=> 'required',
+            'descripcion' => 'required',
+
+        ]);
+        Gama::create([
+            'nombre' => $data['nombre'],
+            'descripcion' => $data['descripcion']
+        ]);
+        return redirect()->route('gama');
     }
 }

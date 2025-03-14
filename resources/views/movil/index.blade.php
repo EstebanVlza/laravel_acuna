@@ -5,12 +5,14 @@
 Moviles
 @endsection
 @section('breadcrumbs')
-<li class="breadcrumb-item">
-    <a href="/">Inicio </a>
-
-    </li>
+<li class="breadcrumb-item"><a href="/">Inicio </a></li>
 <li class="breadcrumb-item active">Moviles</li>
 @endsection
+@section('action')
+<a class="btn btn-success" href="{{ route('movil.agregar') }}"><i class="fa fa-plus"></i>Agregar</a>
+@endsection
+
+
 @section('content')
 
 <table class="table table-dark table-striped">

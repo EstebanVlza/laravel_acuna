@@ -12,6 +12,9 @@ Marcas
 </li>
 <li class="breadcrumb-item active">Marcas</li>
 @endsection
+@section('action')
+<a class="btn btn-success" href="{{ route('marca.agregar') }}"><i class="fa fa-plus"></i>Agregar</a>
+@endsection
 
 @section('content')
 

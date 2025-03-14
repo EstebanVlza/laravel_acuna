@@ -25,9 +25,9 @@ Gamas
                 <p class="card-text"><strong>Descripción:</strong> {{ $gama->descripcion }}</p> 
                 <a href="#" class="card-link">Modificar</a> 
                 <a href="#" class="card-link">Eliminar</a>
-</div>
-</div> 
-</div>
+            </div>
+        </div> 
+    </div>
 </div>
 
 @endsection
