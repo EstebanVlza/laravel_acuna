@@ -33,4 +33,9 @@ class MarcaController extends Controller
         return redirect()->route('marca');
     }
 
+    public function modificar($id){
+        $marca = Marca::where('id', '=', $id)->first();
+        return view('marca.agregar', compact('marca'));
+    }
+
 }

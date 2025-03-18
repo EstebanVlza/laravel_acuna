@@ -36,4 +36,13 @@ public function index(){
         ]);
         return redirect()->route('gama');
     }
+
+    public function modificar($id){
+    
+        $gama = Gama::where('id', '=', $id)->first();
+    
+        return view('gama.agregar', compact('gama'));
+    
+    }
+    
 }

@@ -33,9 +33,9 @@
                 <form action="{{ route('gama.store') }}" method="POST">
                     @csrf
                     <label>nombre</label>
-                    <input type="text" name="nombre" class="form-control my-2 "required>
+                    <input type="text" name="nombre" class="form-control my-2 " value="{{ $gama->nombre }}"required>
                     <label>descripcion</label>
-                    <input type="text" name="descripcion" class="form-control my-2 "required>
+                    <input type="text" name="descripcion" class="form-control my-2 " value="{{ $gama->descripcion }}"required>
                     <button class="btn btn-success mt-2">Guardar</button>
                 </form>
             

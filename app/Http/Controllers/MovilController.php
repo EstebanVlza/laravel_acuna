@@ -49,5 +49,15 @@ public function store(Request $request){
     return redirect()->route('movil');
 }
 
+public function modificar($id){
+    
+    //$movil = Movil::find($id); //error 500
+    $movil = Movil::findOrFail($id); //error 404
+    //$movil = Movil::where('id', '=', $id)->first();
+
+    return view('movil.agregar', compact('movil'));
+
+}
+
 }
 

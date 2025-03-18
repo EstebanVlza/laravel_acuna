@@ -30,10 +30,13 @@ Gamas
             <td>{{ $lineup->id }}</td>
             <td>{{ $lineup->nombre }}</td>
             <td>{{ $lineup->descripcion }}</td> <!-- Corregido: antes decía precio -->
-            <td>{{ $lineup->created_at }}</td>
+            <td>{{ $lineup->created_at->format('d/M/Y') }}</td>
             <td>
                 <a href="{{ route('gama.item', $lineup->id) }}" class="btn btn-sm btn-primary">
                     <i class="fa fa-eye"></i>
+                </a>
+                <a href="{{ route('gama.modificar', $lineup->id) }}" class="btn btn-sm btn-warning">
+                    <i class="fa fa-edit"></i>
                 </a>
             </td>
         </tr>

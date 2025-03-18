@@ -32,10 +32,13 @@ Marcas
         <tr>
             <td>{{ $brand->id }}</td>
             <td>{{ $brand->nombre }}</td>
-            <td>{{ $brand->created_at }}</td>
+            <td>{{ $brand->created_at->format('d/M/Y') }}</td>
             <td>
                 <a href="{{ route('marca.item', $brand->id) }}" class="btn btn-sm btn-primary">
                     <i class="fa fa-eye"></i>
+                </a>
+                <a href="{{ route('marca.modificar', $brand->id) }}" class="btn btn-sm btn-warning">
+                    <i class="fa fa-edit"></i>
                 </a>
             </td>
         </tr>

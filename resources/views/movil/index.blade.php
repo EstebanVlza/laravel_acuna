@@ -39,11 +39,14 @@ Moviles
             <td>{{ $mobile->ram }}</td>
             <td>{{ $mobile->bateria }}</td>
             <td>{{ $mobile->sistema_op }}</td>
-            <td>{{ $mobile->created_at }}</td>
+            <td>{{ $mobile->created_at->format('d/M/Y') }}</td>
             <td>
             <a href="{{ route('movil.item', $mobile->id) }}" class="btn btn-sm btn-primary">
 						<i class="fa fa-eye"></i>
-					</a>
+					  </a>
+            <a href="{{ route('movil.modificar', $mobile->id) }}" class="btn btn-sm btn-warning">
+						<i class="fa fa-edit"></i>
+					  </a>
             </td>
 
         </tr>
