@@ -36,6 +36,10 @@
                     <label>nombre</label>
                     <input type="text" name="nombre" class="form-control my-2"  value="{{ $movil->nombre }}" required>
                     <label>precio</label>
+                    <input type="text" name="gama_id" class="form-control my-2 "  value="{{ $movil->gama_id }}"required>
+                    <label>Gama_id</label>
+                    <input type="text" name="marca_id" class="form-control my-2 "  value="{{ $movil->marca_id }}"required>
+                    <label>Marca_id</label>
                     <input type="text" name="precio" class="form-control my-2 "  value="{{ $movil->precio }}"required>
                     <label>almacenamiento</label>
                     <input type="text" name="almacenamiento" class="form-control my-2 " value="{{ $movil->almacenamiento }}" required>

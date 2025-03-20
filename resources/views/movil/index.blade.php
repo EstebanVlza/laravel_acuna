@@ -20,12 +20,14 @@ Moviles
         <tr>
             <td>Id</td>
             <td>nombre</td>
-            <td>precio</td>
-            <td>almacenamiento</td>
-            <td>ram</td>
-            <td>bateria</td>
-            <td>sistema_op</td>
-            <td>registrado</td>
+            <td>Gama</td>
+            <td>Marca</td>
+            <td>Precio</td>
+            <td>Almacenamiento</td>
+            <td>Ram</td>
+            <td>Bateria</td>
+            <td>Sistema operativo</td>
+            <td>Registrado</td>
             <td>Acciones</td>
         </tr>
   </thead>
@@ -34,6 +36,8 @@ Moviles
         <tr>
             <td>{{ $mobile->id }}</td>
             <td>{{ $mobile->nombre }}</td>
+            <td>{{ $mobile->gama_id }}</td>
+            <td>{{ $mobile->marca_id }}</td>
             <td>{{ $mobile->precio }}</td>
             <td>{{ $mobile->almacenamiento }}</td>
             <td>{{ $mobile->ram }}</td>

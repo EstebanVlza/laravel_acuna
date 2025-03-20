@@ -24,17 +24,17 @@
                     <div class="container-fluid px-4">
                         <div class="row">
                             <div class="col-6">
-
-                            <h1 class="mt-4">@yield('title')</h1>
-                        <ol class="breadcrumb mb-4">
-                            @yield('breadcrumbs')
-                        </ol>
+                                <h1 class="mt-4">@yield('title')</h1>
+                                <ol class="breadcrumb mb-4">
+                                    @yield('breadcrumbs')
+                                </ol>
+                            </div>
+                            <div class="col-6 right my-auto">
+                                @yield('action')
+                            </div>
+                            @yield('content')
                         </div>
-                        <div class="col-6 right my-auto">
-                            @yield('action')
-                        </div>
-                        @yield('content')
-                    </div>
+                        
                 </main>
              @include('partials.footer')
             </div>

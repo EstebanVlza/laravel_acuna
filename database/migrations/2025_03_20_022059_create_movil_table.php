@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('movil', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('gama_id');
+            $table->string('marca_id');
             $table->double('precio');
             $table->integer('almacenamiento');
             $table->integer('ram');

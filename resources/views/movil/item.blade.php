@@ -20,6 +20,8 @@ Moviles
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ $movil->nombre }}</h5>
+                <p class="card-text"><strong>Gama_id: </strong> {{ $movil->gama_id }}</p> 
+                <p class="card-text"><strong>Marca_id: </strong> {{ $movil->marca_id }}</p> 
                 <p class="card-text"><strong>Precio: </strong> {{ $movil->precio }}</p> 
                 <p class="card-text"><strong>almacenamiento: </strong> {{ $movil->almacenamiento }}</p> 
                 <p class="card-text"><strong>ram: </strong> {{ $movil->ram }}</p> 

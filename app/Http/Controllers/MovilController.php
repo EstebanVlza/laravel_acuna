@@ -39,6 +39,8 @@ public function store(Request $request){
     ]);
     Movil::create([
         'nombre' => $data['nombre'],
+        'gama_id' => $data['gama_id'],
+        'marca_id' => $data['marca_id'],
         'precio' => $data['precio'],
         'almacenamiento'=> $data['almacenamiento'],
         'ram'=> $data['ram'],
@@ -52,8 +54,8 @@ public function store(Request $request){
 public function modificar($id){
     
     //$movil = Movil::find($id); //error 500
-    $movil = Movil::findOrFail($id); //error 404
-    //$movil = Movil::where('id', '=', $id)->first();
+    //$movil = Movil::findOrFail($id); //error 404
+    $movil = Movil::where('id', '=', $id)->first();
 
     return view('movil.agregar', compact('movil'));
 
