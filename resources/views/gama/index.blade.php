@@ -14,6 +14,18 @@ Gamas
 
 @section('content')
 
+@if(\Session::has('message'))
+
+<div class="alert alert-primary my-3">
+      <div class="card-header">
+        <h4 class="mb-0">Atención</h4>
+      </div>
+      <div class="card-body">
+        {!! \Session::get('message') !!}
+      </div>
+</div>
+@endif
+
 <table class="table table-dark table-striped">
   <thead>
         <tr>

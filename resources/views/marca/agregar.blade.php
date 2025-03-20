@@ -33,7 +33,8 @@
                 <form action="{{ route('marca.store') }}" method="POST">
                     @csrf
                     <label>nombre</label>
-                    <input type="text" name="nombre" class="form-control my-2 " value="{{ $marca->nombre }}"required>
+                    <input type="text" name="nombre" class="form-control my-2 " 
+                    value="{{ old('nombre', $marca->nombre ?? '') }}" required>
                     <button class="btn btn-success mt-2">Guardar</button>
                 </form>
             

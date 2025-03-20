@@ -30,8 +30,25 @@ class MarcaController extends Controller
         Marca::create([
             'nombre' => $data['nombre'],
         ]);
-        return redirect()->route('marca');
+        return redirect()->route('marca')->with('message', 'Marca registrada con exito');
     }
+
+        public function update(Request $request){
+        $data= $request->validate([
+            'nombre'=> 'required'
+        ]);
+        $marca = Marca::where('nombre','=', $data)->first();
+        if($marca){
+        Marca::update([
+            'nombre' => $data['nombre'],
+        ]);
+    
+        return redirect()->route('marca');
+    }else{
+        return redirect()->route('marca');
+
+    }
+}
 
     public function modificar($id){
         $marca = Marca::where('id', '=', $id)->first();

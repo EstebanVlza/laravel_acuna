@@ -34,8 +34,22 @@ public function index(){
             'nombre' => $data['nombre'],
             'descripcion' => $data['descripcion']
         ]);
+        return redirect()->route('gama')->with('message', 'Gama registrada con exito');
+    }
+
+    public function update(Request $request){
+        $data= $request->validate([
+            'nombre'=> 'required'
+
+        ]);
+        Gama::create([
+            'nombre' => $data['nombre'],
+        ]);
         return redirect()->route('gama');
     }
+
+    
+
 
     public function modificar($id){
     
