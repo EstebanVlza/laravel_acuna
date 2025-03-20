@@ -46,6 +46,5 @@ Marcas
   </tbody>
 </table>
 
-<h1>Aquitoy</h1>
 
 @endsection

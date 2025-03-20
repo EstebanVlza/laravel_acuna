@@ -60,5 +60,4 @@ Moviles
 </table>
 
 
-<h1>Aquitoy</h1>
 @endsection
