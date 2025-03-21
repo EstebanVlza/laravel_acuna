@@ -1,13 +1,13 @@
 @extends('layouts.main')
-@section('top-title', 'Marcas - Agregar')
+@section('top-title', 'Marcas -' . (isset($marca) ? 'Modificar' : 'Agregar'))
 
 @section('title')
-<i class="fa fa-user"></i>Moviles
+<h1><i class="fa fa-user"></i>Marcas - {{ isset ($marca) ? 'Modificar' : 'Agregar' }}</h1>
 @endsection
 @section('breadcrumbs')
 <li class="breadcrumb-item"><a href={{route('home')}}>Inicio </a></li>
 <li class="breadcrumb-item"><a href={{route('marca')}}>Inicio </a></li>
-<li class="breadcrumb-item active">Agregar</li>
+<li class="breadcrumb-item active">{{ isset ($marca) ? 'Modificar' : 'Agregar' }} </li>
 @endsection
 
 @section('content')
@@ -30,7 +30,12 @@
         <div class="card">
       
             <div class="card-body">
+                @if(isset($marca))
+                <form action="{{ route('marca.update', $marca->id) }}" method="POST">
+                    <input type="hidden" name="id" value="{{ $marca->id }}">
+                @else
                 <form action="{{ route('marca.store') }}" method="POST">
+                @endif
                     @csrf
                     <label>nombre</label>
                     <input type="text" name="nombre" class="form-control my-2 " 

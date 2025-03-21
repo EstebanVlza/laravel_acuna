@@ -35,14 +35,17 @@ class MarcaController extends Controller
 
         public function update(Request $request){
         $data= $request->validate([
+            'id'=>'integer|required',
             'nombre'=> 'required'
+        ],[
+            'nombre.varchar' => 'favor de escribir el nombre con letras',
         ]);
-        $marca = Marca::where('nombre','=', $data)->first();
+        $marca = Marca::where('id','=', $data['id'])->first();
+
         if($marca){
-        Marca::update([
-            'nombre' => $data['nombre'],
-        ]);
-    
+            $marca->nombre = $data['nombre'];
+            $marca->save();
+        
         return redirect()->route('marca');
     }else{
         return redirect()->route('marca');

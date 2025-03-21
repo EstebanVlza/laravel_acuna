@@ -9,10 +9,15 @@ class MovilController extends Controller
 {
 public function index() {
 
-    $movil = Movil::where('ram', '>', '3')->get(); 
+    $movil = Movil::all(); 
 
     return view("movil.index", compact("movil"));
 
+}
+
+public function agregar(){
+    
+    return view('movil.agregar');
 }
 
 public function item($id){
@@ -20,10 +25,7 @@ public function item($id){
 
     return view('movil.item', compact('movil'));
 }
-public function agregar(){
-    
-    return view('movil.agregar');
-}
+
 
 public function store(Request $request){
     $data= $request->validate([
@@ -85,8 +87,7 @@ public function update(Request $request){
         $movil->bateria= $data['bateria'];
         $movil->sistema_op= $data['sistema_op'];
         $movil->save();
-    
-        
+      
         return redirect()->route('movil');
 
      } else{

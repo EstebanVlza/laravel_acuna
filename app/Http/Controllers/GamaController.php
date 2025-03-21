@@ -27,8 +27,10 @@ public function index(){
     public function store(Request $request){
         $data= $request->validate([
             'nombre'=> 'required',
-            'descripcion' => 'required',
+            'descripcion' => 'required'
 
+        ], [
+            'nombre'=> 'favor de escribir el nombre con letras',
         ]);
         Gama::create([
             'nombre' => $data['nombre'],
@@ -39,14 +41,28 @@ public function index(){
 
     public function update(Request $request){
         $data= $request->validate([
-            'nombre'=> 'required'
+            'id'=> 'integer|required',
+            'nombre'=> 'required',
+            'descripcion'=> 'required'
 
+        ],[
+            'nombre.varchar' => 'favor de escribir el nombre con letra',
         ]);
-        Gama::create([
-            'nombre' => $data['nombre'],
-        ]);
+        $gama = Gama::Where('id', '=', $data['id'])->first();
+
+        if($gama){
+
+            $gama->nombre = $data['nombre'];
+            $gama->descripcion = $data['descripcion']; 
+            $gama->save();   
+
+        return redirect()->route('gama');
+
+
+    } else{
         return redirect()->route('gama');
     }
+}
 
     
 

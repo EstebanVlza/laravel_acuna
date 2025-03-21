@@ -42,7 +42,7 @@
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" class="form-control my-2"  
                         value="{{ old('nombre', $movil->nombre ?? '') }}" required>
-
+                        
                         <label for="gama_id">Gama</label>
                         <input type="text" id="gama_id" name="gama_id" class="form-control my-2"  
                         value="{{ old('gama_id', $movil->gama_id ?? '') }}" required>
