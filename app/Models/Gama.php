@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gama extends Model
 {
-    protected $table = "gama";
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'status'
+    ];
 }

@@ -48,8 +48,8 @@ Moviles
         <tr>
             <td>{{ $mobile->id }}</td>
             <td>{{ $mobile->nombre }}</td>
-            <td>{{ $mobile->gama_id }}</td>
-            <td>{{ $mobile->marca_id }}</td>
+            <td>{{ $mobile->gama -> nombre}}</td>
+            <td>{{ $mobile->marca -> nombre}}</td>
             <td>{{ $mobile->precio }}</td>
             <td>{{ $mobile->almacenamiento }}</td>
             <td>{{ $mobile->ram }}</td>
