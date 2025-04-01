@@ -18,6 +18,7 @@ class Movil extends Model
         'ram', 
         'bateria', 
         'sistema_op',
+        'status',
     ];
 
     public function gama(){

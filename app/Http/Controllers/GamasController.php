@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Gama;
 use Illuminate\Http\Request;
 
-class GamaController extends Controller
+class GamasController extends Controller
 {
 public function index(){
     
-    $gama = Gama::all();
+    $gamas = Gama::where( 'status', '=',1)->get();
     
-    return view("gama.index", compact("gama"));
+    return view("gama.index", compact("gamas"));
 
     }
     public function agregar(){
-    
         return view('gama.agregar');
+
     }
     
     public function item($id){
@@ -64,15 +64,28 @@ public function index(){
     }
 }
 
-    
-
-
     public function modificar($id){
     
         $gama = Gama::where('id', '=', $id)->first();
     
         return view('gama.agregar', compact('gama'));
     
+    }
+
+    public function delete(Request $request){
+        $data = $request->validate([
+            'gama_id' => 'required|integer'
+        ], [
+            'gama_id.integer' => 'favor de enviar el id unicamente'
+        ]);
+        $gama = Gama::Where('id','=', $data['gama_id'])->where('status', '=', 1)->first();
+        if($gama){
+            $gama->status=0;
+            $gama->save();
+            return redirect()->route('gama')->with('success', 'Se elimino correctamente la gama');
+        }else{
+            return redirect()->route('gama')->with('error', 'No se encontro una gama con los datos proporcionados. Favor de verificarlo,');
+        }
     }
     
 }

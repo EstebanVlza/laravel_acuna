@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Movil;
 use Illuminate\Http\Request;
 
-class MovilController extends Controller
+class MovilesController extends Controller
 {
 public function index() {
 
-    $movil = Movil::all(); 
+    $moviles = Movil::where('status', '=',true)->get(); 
 
-    return view("movil.index", compact("movil"));
+    return view("movil.index", compact("moviles"));
 
 }
 
@@ -106,6 +106,21 @@ public function modificar($id){
 
 }
 
+public function delete(Request $request){
+    $data = $request->validate([
+        'movil_id' => 'required|integer'
+    ], [
+        'movil_id.integer' => 'favor de enviar el id unicamente'
+    ]);
+    $movil = Movil::Where('id','=', $data['movil_id'])->where('status', '=', 1)->first();
+    if($movil){
+        $movil->status=0;
+        $movil->save();
+        return redirect()->route('movil')->with('success', 'Se elimino correctamente el dispositivo movil');
+    }else{
+        return redirect()->route('movil')->with('error', 'No se encontro un dispositivo movil con los datos proporcionados. Favor de verificarlo,');
+    }
+}
 
 }
 
