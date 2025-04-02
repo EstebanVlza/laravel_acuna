@@ -24,23 +24,22 @@ class MarcasController extends Controller
     }
 
     public function item($id){
-        $brand = Marca::where('id', '=', $id)->where('status', '=', 1)->first(); // Usar first() en lugar de get()
+        $brand = Marca::where('id', '=', $id)->where('status', '=', 1)->first();
 
         if ($brand) {
-            $object = [
+            return response()->json([
                 'id' => $brand->id,
                 'nombre' => $brand->nombre,
-            ];
-            return response()->json($object);
-        } else {
-            return response()->json([
-                'code' => 404,
-                'message' => 'No se encontró la marca que buscabas'
-            ], 404);
+            ]);
         }
+
+        return response()->json([
+            'code' => 404,
+            'message' => 'No se encontró la marca que buscabas'
+        ], 404);
     }
 
-    public function create(Request $request){ // Se debe incluir el tipo Request en el parámetro
+    public function create(Request $request){
         $data = $request->validate([
             'nombre' => 'required',
         ]);
@@ -49,15 +48,68 @@ class MarcasController extends Controller
         
         if ($brand) {
             return response()->json([
-                'code' => 200,
-                'message' => 'Se ha creado el elemento con éxito',
+                'code' => 201,
+                'message' => 'Se ha creado la marca con éxito',
                 'marca' => $brand
-            ]);
-        } else {
-            return response()->json([
-                'code' => 400,
-                'message' => 'No se pudo crear el elemento, favor de verificarlo'
-            ], 400); // Código 400 en lugar de 666
+            ], 201);
         }
+
+        return response()->json([
+            'code' => 400,
+            'message' => 'No se pudo crear la marca, favor de verificarlo'
+        ], 400);
     }
+
+    public function update(Request $request, $id){
+        $data = $request->validate([
+            'nombre' => 'required',
+        ]);
+
+        $brand = Marca::find($id);
+        
+        if ($brand) {
+            $brand->update($data);
+            return response()->json([
+                'code' => 200,
+                'message' => 'Marca actualizada con éxito',
+                'marca' => $brand,
+            ]);
+        }
+
+        return response()->json([
+            'code' => 404,
+            'message' => 'Marca no encontrada con los datos introducidos',
+        ], 404);
+    }
+
+    public function delete($id){
+        $brand = Marca::find($id);
+    
+        if (!$brand) {
+            return response()->json([
+                'code' => 404,
+                'message' => 'Marca no encontrada'
+            ], 404);
+        }
+    
+        // Cambiar el estado a 0 en lugar de eliminar
+        $brand->status = 0;
+        
+        if ($brand->save()) {
+            return response()->json([
+                'code' => 200,
+                'message' => 'Estado de la marca cambiado con éxito',
+                'marca' => [
+                    'id' => $id,
+                    'status' => 0
+                ]
+            ]);
+        }
+    
+        return response()->json([
+            'code' => 500,
+            'message' => 'No se pudo actualizar el estado, intenta nuevamente.'
+        ], 500);
+    }
+    
 }

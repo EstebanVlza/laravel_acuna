@@ -29,6 +29,7 @@ class MarcasController extends Controller
         ]);
         Marca::create([
             'nombre' => $data['nombre'],
+            'status' => 1,
         ]);
         return redirect()->route('marca')->with('message', 'Marca registrada con exito');
     }

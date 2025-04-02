@@ -21,7 +21,7 @@ public function agregar(){
 }
 
 public function item($id){
-    $movil = Movil::where('id', '=', $id)->first();
+    $movil = Movil::with(['gama', 'marca'])->where('id', '=', $id)->first();
 
     return view('movil.item', compact('movil'));
 }
@@ -51,7 +51,8 @@ public function store(Request $request){
         'almacenamiento'=> $data['almacenamiento'],
         'ram'=> $data['ram'],
         'bateria'=> $data['bateria'],
-        'sistema_op'=> $data['sistema_op']
+        'sistema_op'=> $data['sistema_op'],
+        'status' => 1,
 
     ]);
     return redirect()->route('movil')->with('message', 'Movil registrado con exito');

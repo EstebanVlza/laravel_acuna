@@ -20,12 +20,12 @@ Moviles
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ $movil->nombre }}</h5>
-                <p class="card-text"><strong>Gama_id: </strong> {{ $movil->gama_id }}</p> 
-                <p class="card-text"><strong>Marca_id: </strong> {{ $movil->marca_id }}</p> 
+                <p class="card-text"><strong>Gama: </strong> {{ $movil->gama->nombre }}</p> 
+                <p class="card-text"><strong>Marca: </strong> {{ $movil->marca->nombre }}</p> 
                 <p class="card-text"><strong>Precio: </strong> {{ $movil->precio }}</p> 
                 <p class="card-text"><strong>almacenamiento: </strong> {{ $movil->almacenamiento }}</p> 
-                <p class="card-text"><strong>ram: </strong> {{ $movil->ram }}</p> 
-                <p class="card-text"><strong>bateria: </strong> {{ $movil->bateria }}</p> 
+                <p class="card-text"><strong>ram: </strong> {{ $movil->ram }} GB</p> 
+                <p class="card-text"><strong>bateria: </strong> {{ $movil->bateria }} </p> 
                 <p class="card-text"><strong>sistema operativo: </strong> {{ $movil->sistema_op }}</p> 
                 <a href="#" class="card-link">Modificar</a> 
                 <a href="#" class="card-link">Eliminar</a>

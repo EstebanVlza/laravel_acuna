@@ -63,4 +63,61 @@ class GamasController extends Controller
             ], 400);
         }
     }
+    public function update(Request $request, $id){
+        $data = $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'nullable',
+        ]);
+
+        $lineup = Gama::find($id);
+        
+        if ($lineup) {
+            $lineup->nombre = $data['nombre'];
+            $lineup->descripcion = $data['descripcion'];
+            return response()->json([
+                'code' => '200',
+                'message' => 'gama actualizada con éxito',
+                'gama' => $lineup,
+            ]);
+
+        } else {
+            return response()->json([
+                'code' => 404,
+                'message' => 'Gama no encontrada con los datos introducidos',
+
+            ], 400);
+        }
+    }
+
+    public function delete($id)
+    {
+        $lineup = Gama::find($id);
+    
+        if (!$lineup) {
+            return response()->json([
+                'code' => 404,
+                'message' => 'Gama no encontrada'
+            ], 404);
+        }
+    
+        $lineup->status = 0;
+        
+        if ($lineup->save()) {
+            return response()->json([
+                'code' => 200,
+                'message' => 'Estado de la gama cambiado con éxito',
+                'gama' => [
+                    'id' => $id,
+                    'status' => 0
+                ]
+            ]);
+        } else {
+            return response()->json([
+                'code' => 500,
+                'message' => 'No se pudo actualizar el estado, intenta nuevamente.'
+            ], 500);
+        }
+    }
+    
+
 }

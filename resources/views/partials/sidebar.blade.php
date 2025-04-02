@@ -19,10 +19,6 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-trophy"></i></div>
                                 Gama
                             </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
-                                Usuarios
-                            </a>
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

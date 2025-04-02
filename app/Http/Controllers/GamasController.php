@@ -34,7 +34,8 @@ public function index(){
         ]);
         Gama::create([
             'nombre' => $data['nombre'],
-            'descripcion' => $data['descripcion']
+            'descripcion' => $data['descripcion'],
+            'status' => 1,
         ]);
         return redirect()->route('gama')->with('message', 'Gama registrada con exito');
     }
